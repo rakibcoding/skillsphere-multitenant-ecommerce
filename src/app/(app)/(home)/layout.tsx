@@ -19,6 +19,7 @@ const Layout = async ({ children }: Props) => {
     pagination: false,
     depth: 1, // 1 = only top level categories, 2 = all categories
     where: { parent: { exists: false } },
+    sort:"name",
   });
 
   const formattedData: CustomCategory[] = data.docs.map((doc) => ({
