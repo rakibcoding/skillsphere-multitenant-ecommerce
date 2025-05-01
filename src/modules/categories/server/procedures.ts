@@ -1,14 +1,9 @@
-import { getPayload } from "payload";
-import configPromise from "@payload-config";
 import { baseProcedure, createTRPCRouter } from "@/trpc/init";
 import { Category } from "@/payload-types";
 
 export const categoriesRouter = createTRPCRouter({
-  getMany: baseProcedure.query(async () => {
-    const payload = await getPayload({
-      config: configPromise,
-    });
-    const data = await payload.find({
+  getMany: baseProcedure.query(async ({ctx}) => {
+    const data = await ctx.payload.find({
       collection: "categories",
       pagination: false,
       depth: 1, // 1 = only top level categories, 2 = all categories
@@ -23,6 +18,6 @@ export const categoriesRouter = createTRPCRouter({
       })), // bcz of 'depth: 1' we are confident 'doc' will be a type of 'Category'
     }));
 
-    return formattedData
+    return formattedData;
   }),
 });
