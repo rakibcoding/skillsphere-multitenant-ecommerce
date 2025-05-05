@@ -1,5 +1,11 @@
 {
-  "cSpell.words": ["ecommerce", "Funroad", "multitenant", "sonner"],
+  "cSpell.words": [
+    "ecommerce",
+    "Funroad",
+    "multitenant",
+    "payloadcms",
+    "sonner"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
 }
