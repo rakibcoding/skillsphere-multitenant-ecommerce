@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 import { Poppins } from "next/font/google";
+import { useTRPC } from "@/trpc/client";
+import { usePathname } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
 import { NavbarSidebar } from "./navbar-sidebar";
-import { useState } from "react";
 import { MenuIcon } from "lucide-react";
-import { useTRPC } from "@/trpc/client";
-import { useQuery } from "@tanstack/react-query";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -80,10 +80,7 @@ export const Navbar = () => {
             variant="secondary"
             className="border-l border-t-0 border-b-0 border-0 px-12 h-full rounded-none bg-black text-white hover:bg-pink-400 hover:text-black transition-colors text-lg"
           >
-            <Link href="/admin">
-              {" "}
-              Dashboard
-            </Link>
+            <Link href="/admin"> Dashboard</Link>
           </Button>
         </div>
       ) : (
