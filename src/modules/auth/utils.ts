@@ -11,5 +11,8 @@ export const generateAuthCookies = async ({ prefix, value }: Props) => {
     value: value,
     httpOnly: true,
     path: "/",
+    // secure: process.env.NODE_ENV === "production",
+    // sameSite: "none",
+    // maxAge: 60 * 60 * 24 * 7, // 1 week
   });
 };
