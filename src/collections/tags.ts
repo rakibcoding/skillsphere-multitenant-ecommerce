@@ -8,6 +8,7 @@ export const Tags: CollectionConfig = {
       name: "name",
       type: "text",
       required: true,
+      unique: true,
     },
     {
       name: "products",
