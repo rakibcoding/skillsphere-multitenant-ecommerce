@@ -4,11 +4,11 @@ import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import {
   ProductList,
   ProductListSkeleton,
-} from "@/modules/products/ui/products/product-list";
+} from "@/modules/products/ui/components/product-list";
 import { Suspense } from "react";
-import { ProductFilters } from "@/modules/products/ui/products/product-filters";
+import { ProductFilters } from "@/modules/products/ui/components/product-filters";
 import { loadProductFilters } from "@/modules/products/search-params";
-import { ProductSort } from "@/modules/products/ui/products/product-sort";
+import { ProductSort } from "@/modules/products/ui/components/product-sort";
 
 interface Props {
   params: Promise<{
