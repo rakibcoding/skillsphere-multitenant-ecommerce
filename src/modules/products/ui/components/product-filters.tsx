@@ -15,7 +15,7 @@ const ProductFilter = ({ title, className, children }: ProductFilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const Icon = isOpen ? ChevronDownIcon : ChevronRightIcon;
   return (
-    <div className={(cn("p-4 border-b flex flex-col gap-4"), className)}>
+    <div className={cn("p-4 border-b flex flex-col gap-2", className)}>
       <div
         className="flex items-center justify-between cursor-pointer"
         onClick={() => setIsOpen((current) => !current)}
