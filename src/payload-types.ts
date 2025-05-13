@@ -226,7 +226,7 @@ export interface Product {
   category?: (string | null) | Category;
   tags?: (string | Tag)[] | null;
   image?: (string | null) | Media;
-  refundPolicy?: ('30 days' | '60 days' | '90 days' | 'no refund') | null;
+  refundPolicy?: ('30 days' | '60 days' | '90 days' | 'no-refund') | null;
   updatedAt: string;
   createdAt: string;
 }
