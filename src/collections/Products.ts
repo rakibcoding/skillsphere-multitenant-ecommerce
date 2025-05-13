@@ -40,7 +40,7 @@ export const Products: CollectionConfig = {
     {
       name: "refundPolicy",
       type: "select",
-      options: ["30 days", "60 days", "90 days", "no refund"],
+      options: ["30 days", "60 days", "90 days", "no-refund"],
       defaultValue: "30 days",
     },
   ],
