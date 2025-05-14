@@ -19,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${DMSans.className}  antialiased`}>
+      <body
+        className={`${DMSans.className}  antialiased`}
+        suppressHydrationWarning={true}
+      >
         <NuqsAdapter>
           <TRPCReactProvider>
             {children}
