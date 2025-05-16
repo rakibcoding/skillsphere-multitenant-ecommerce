@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { InboxIcon } from "lucide-react";
 import { ProductCard, ProductCardSkeleton } from "./product-card";
 
-
 export const ProductList = () => {
   const trpc = useTRPC();
   const { data, hasNextPage, isFetchingNextPage, fetchNextPage } =
@@ -45,8 +44,8 @@ export const ProductList = () => {
               imageUrl={product.image?.url}
               tenantSlug={product.tenant?.slug}
               tenantImageUrl={product.tenant?.image?.url}
-              reviewRating={3}
-              reviewCount={5.0}
+              reviewRating={product.reviewRating}
+              reviewCount={product.reviewCount}
             />
           ))}
       </div>
