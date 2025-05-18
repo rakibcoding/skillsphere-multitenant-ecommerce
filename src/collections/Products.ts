@@ -10,7 +10,8 @@ export const Products: CollectionConfig = {
       const tenant = req.user?.tenants?.[0]?.tenant as Tenant;
       return Boolean(tenant?.stripeDetailsSubmitted);
     },
-    update: ({ req }) => isSuperAdmin(req.user),
+    // update: ({ req }) => isSuperAdmin(req.user),
+    delete: ({ req }) => isSuperAdmin(req.user),
   },
   admin: {
     useAsTitle: "name",
@@ -23,9 +24,8 @@ export const Products: CollectionConfig = {
       required: true,
     },
     {
-      // Todo change to RichText
       name: "description",
-      type: "text",
+      type: "richText",
     },
     {
       name: "price",
@@ -60,11 +60,29 @@ export const Products: CollectionConfig = {
     },
     {
       name: "content",
-      // Todo change to RichText
-      type: "textarea",
+      type: "richText",
       admin: {
         description:
           "Protected content only visible to customer after purchase. Add product documentation, downloadable files, getting started guides and bonus materials.Support markdown formatting",
+      },
+    },
+    {
+      name: "isPrivate",
+      label: "Private",
+      type: "checkbox",
+      defaultValue: false,
+      admin: {
+        description:
+          "If checked, this product will not be shown on the public storefront",
+      },
+    },
+    {
+      name: "isArchived",
+      label: "Archive",
+      type: "checkbox",
+      defaultValue: false,
+      admin: {
+        description: "If checked, this product will be archived",
       },
     },
   ],

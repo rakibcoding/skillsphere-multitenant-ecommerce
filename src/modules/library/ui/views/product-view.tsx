@@ -1,9 +1,12 @@
 "use client";
-import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
+import { Suspense } from "react";
 import { useTRPC } from "@/trpc/client";
+import { ArrowLeftIcon } from "lucide-react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { ReviewSidebar } from "../components/review-sidebar";
+import { RichText } from "@payloadcms/richtext-lexical/react";
+import { ReviewFormSkeleton } from "../components/review-form";
 
 interface Props {
   productId: string;
@@ -32,12 +35,15 @@ export const ProductView = ({ productId }: Props) => {
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-4 lg:gap-16">
           <div className="lg:col-span-2">
             <div className="p-4 bg-white rounded-md border gap-4">
-              <ReviewSidebar productId={productId} />
+              <Suspense fallback={<ReviewFormSkeleton />}>
+                <ReviewSidebar productId={productId} />
+              </Suspense>
             </div>
           </div>
           <div className="lg:col-span-5">
             {data.content ? (
-              <p>{data.content}</p>
+              // <p>{data.content}</p>
+              <RichText data={data.content} />
             ) : (
               <p className="font-medium italic text-muted-foreground">
                 No special content
@@ -46,6 +52,19 @@ export const ProductView = ({ productId }: Props) => {
           </div>
         </div>
       </section>
+    </div>
+  );
+};
+
+export const ProductViewSkeleton = () => {
+  return (
+    <div className="min-h-screen bg-white">
+      <nav className="p-4 bg-[#FAFAF0] w-full border-b">
+        <div className="flex items-center gap-2">
+          <ArrowLeftIcon className="size-4" />
+          <span className="text font-medium">Back to Library</span>
+        </div>
+      </nav>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import type { Sort, Where } from "payload";
 import { Category, Media, Tenant } from "@/payload-types";
 import { sortValues } from "../search-params";
 import { DEFAULT_LIMIT } from "@/constants";
+import { TRPCError } from "@trpc/server";
 
 export const productsRouter = createTRPCRouter({
   getOne: baseProcedure
@@ -21,6 +22,12 @@ export const productsRouter = createTRPCRouter({
           content: false,
         },
       });
+      if (product.isArchived) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Product not found",
+        });
+      }
       let isPurchased = false;
       if (session.user) {
         const orderData = await ctx.payload.find({
@@ -111,7 +118,11 @@ export const productsRouter = createTRPCRouter({
       if (input.sort === "trending") {
         sort = "-createdAt";
       }
-      const where: Where = {};
+      const where: Where = {
+        isArchived: {
+          not_equals: true,
+        },
+      };
       if (input.minPrice && input.maxPrice) {
         where.price = {
           greater_than_equal: input.minPrice,
@@ -129,6 +140,10 @@ export const productsRouter = createTRPCRouter({
       if (input.tenantSlug) {
         where["tenant.slug"] = {
           equals: input.tenantSlug,
+        };
+      } else {
+        where["isPrivate"] = {
+          not_equals: true,
         };
       }
       if (input.category) {
