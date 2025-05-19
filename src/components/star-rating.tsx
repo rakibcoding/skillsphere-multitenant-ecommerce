@@ -24,7 +24,11 @@ export const StarRating = ({
       {Array.from({ length: MAX_RATING }).map((_, index) => (
         <StarIcon
           key={index}
-          className={cn("size-4", index < safeRating ? "fill-black" : "")}
+          className={cn(
+            "size-4",
+            index < safeRating ? "fill-black" : "",
+            iconClassName
+          )}
         />
       ))}
       {text && <p>{text}</p>}
