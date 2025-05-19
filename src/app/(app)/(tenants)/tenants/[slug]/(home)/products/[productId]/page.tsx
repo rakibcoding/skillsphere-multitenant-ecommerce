@@ -9,6 +9,7 @@ import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 interface Props {
   params: Promise<{ productId: string; slug: string }>;
 }
+export const dynamic = "force-dynamic";
 
 const Page = async ({ params }: Props) => {
   const { productId, slug } = await params;
