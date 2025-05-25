@@ -9,7 +9,7 @@ const DMSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Funroad App",
-  description: "Multi-Tanent next app",
+  description: "Multi-Tenant next app",
 };
 
 export default function RootLayout({
