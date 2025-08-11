@@ -5,6 +5,8 @@
     "multitenant",
     "Nuqs",
     "payloadcms",
+    "Shadcn",
+    "skillsphere",
     "sonner"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
