@@ -10,7 +10,7 @@ export const Footer = () => {
         <p>Powered by</p>
         <Link href={process.env.NEXT_PUBLIC_APP_URL!}>
           <span className={cn("text-2xl font-semibold", poppins.className)}>
-            Funroad
+            SkillSphere
           </span>
         </Link>
       </div>

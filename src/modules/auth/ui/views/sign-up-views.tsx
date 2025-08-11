@@ -71,7 +71,7 @@ export const SignUpView = () => {
                 <span
                   className={cn("text-2xl font-semibold", poppins.className)}
                 >
-                  Funroad
+                  SkillSphere
                 </span>
               </Link>
               <Button
@@ -86,7 +86,7 @@ export const SignUpView = () => {
               </Button>
             </div>
             <h1 className="text-4xl font-medium">
-              Join over 1800 create on funroad
+              Join over 1800 create on SkillSphere
             </h1>
             <FormField
               name="username"

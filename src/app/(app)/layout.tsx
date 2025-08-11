@@ -8,7 +8,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 const DMSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Funroad App",
+  title: "SkillSphere",
   description: "Multi-Tenant next app",
 };
 
